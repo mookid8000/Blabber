@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FD46AE5E-8010-4F79-88E0-B1824F2C9CFC}"
+	ProjectSection(SolutionItems) = preProject
+		..\scripts\build.proj = ..\scripts\build.proj
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blabber", "Blabber\Blabber.csproj", "{3AB8FEA7-609C-4C9C-973F-CAAD28723AA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AB8FEA7-609C-4C9C-973F-CAAD28723AA9}.Debug|x86.ActiveCfg = Debug|x86
+		{3AB8FEA7-609C-4C9C-973F-CAAD28723AA9}.Debug|x86.Build.0 = Debug|x86
+		{3AB8FEA7-609C-4C9C-973F-CAAD28723AA9}.Release|x86.ActiveCfg = Release|x86
+		{3AB8FEA7-609C-4C9C-973F-CAAD28723AA9}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
