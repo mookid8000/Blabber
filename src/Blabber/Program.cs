@@ -33,7 +33,7 @@ namespace Blabber
         static void Run()
         {
             mongoDatabase = MongoDatabase.Create("mongodb://localhost/blabber");
-
+            
             using (var worker = new BackgroundWorker {WorkerSupportsCancellation = true})
             {
                 worker.DoWork += DoBackgroundWork;
