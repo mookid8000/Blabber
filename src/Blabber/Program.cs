@@ -32,7 +32,7 @@ namespace Blabber
 
         static void Run()
         {
-            mongoDatabase = MongoDatabase.Create("mongodb://localhost/blabber");
+            mongoDatabase = MongoDatabase.Create("mongodb://localhost:27017/blabber");
             
             using (var worker = new BackgroundWorker {WorkerSupportsCancellation = true})
             {
@@ -67,7 +67,7 @@ namespace Blabber
                                 return {count: count};
                             }
 ");
-                    var options = MapReduceOptions.SetOutput(MapReduceOutput.Merge("tags"));
+                    var options = MapReduceOptions.SetOutput(MapReduceOutput.Replace("tags"));
 
                     collection.MapReduce(map, reduce, options);
                 }
@@ -76,7 +76,7 @@ namespace Blabber
                     Console.WriteLine(ex);
                 }
 
-                Thread.Sleep(1000);
+                Thread.Sleep(100000);
             }
         }
 
@@ -127,7 +127,7 @@ namespace Blabber
             var tag = Console.ReadLine();
 
             var blabs = mongoDatabase.GetCollection<Blab>("blabs")
-                .Find(Query.EQ("tags", tag));
+                .Find(Query.EQ("tags", tag)).SetSlaveOk(true);
 
             foreach (var blab in blabs)
             {
@@ -138,7 +138,8 @@ namespace Blabber
         static void ShowMentions()
         {
             var blabs = mongoDatabase.GetCollection<Blab>("blabs")
-                .Find(Query.EQ("mentions", username));
+                .Find(Query.EQ("mentions", username))
+                .SetSlaveOk(true);
 
             foreach (var blab in blabs)
             {
